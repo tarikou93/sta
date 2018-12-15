@@ -30,19 +30,19 @@ if (!isset($_SESSION['user'])){
     						</div>
 
     					</div>
-    					<form action="servlets/.php" method="post">
+    					<form action="servlets/updateEvent.php" method="post">
 
                 <div class="form-group row">
     							<label class="col-sm-12 col-md-2 col-form-label">Date</label>
     							<div class="col-sm-12 col-md-10">
-    								<?php echo "<input class='form-control' placeholder='Select Date' type='date' name='date' >" ?>
+    								<?php echo "<input class='form-control' placeholder='Select Date' type='date' name='date' value='". $_SESSION['eventToModif']['DATE_EVE'] ."' >" ?>
     							</div>
     						</div>
 
                 <div class="form-group row">
     							<label class="col-sm-12 col-md-2 col-form-label">Heure</label>
     							<div class="col-sm-12 col-md-10">
-    								<?php echo "<input class='form-control time-picker' placeholder='Heure' type='text' name='heure'>" ?>
+    								<?php echo "<input class='form-control time-picker' placeholder='Heure' type='text' name='heure' value='". $_SESSION['eventToModif']['HEURE'] ."' >" ?>
     							</div>
     						</div>
 
@@ -50,27 +50,28 @@ if (!isset($_SESSION['user'])){
     						<div class="form-group row">
     							<label class="col-sm-12 col-md-2 col-form-label">Lieu</label>
     							<div class="col-sm-12 col-md-10">
-    								<?php echo "<input class='form-control' type='text' placeholder='Lieu' name='lieu' value='{$_SESSION['eventToModif']['ID_EVE']}'>" ?>
+    								<?php echo "<input class='form-control' type='text' placeholder='Lieu' name='lieu' value='{$_SESSION['eventToModif']['LIEU']}'>" ?>
     							</div>
     						</div>
 
                 <div class="form-group row">
     							<label class="col-sm-12 col-md-2 col-form-label">Ecrit relatif</label>
     							<div class="col-sm-12 col-md-10">
-    								<?php echo "<input class='form-control' type='text' placeholder='Référence' name='ref'> "?>
+    								<?php echo "<input class='form-control' type='text' placeholder='Référence' name='ref' value='{$_SESSION['eventToModif']['REF']}' > "?>
     							</div>
     						</div>
 
                 <div class="form-group">
 							     <label>Objet</label>
-							     <?php echo "<textarea style='resize:both' class='form-control' name='objet' ></textarea>" ?>
+							     <?php echo "<textarea style='resize:both' class='form-control' name='objet' > ". $_SESSION['eventToModif']['OBJET_EVE'] ." </textarea>" ?>
 						    </div>
 
                 <div class="form-group">
 							     <label>Observation</label>
-							     <?php echo "<textarea style='resize:both' class='form-control' name='obs'></textarea>" ?>
+							     <?php echo "<textarea style='resize:both' class='form-control' name='obs' >". $_SESSION['eventToModif']['OBSERV_EVE']."</textarea>" ?>
 						    </div>
 
+								<?php echo " <input type='hidden' name='idEvent' value='". $_SESSION['eventToModif']['ID_EVE']."'/>  "; ?>
 
                 <input type="submit" value="valider" class="btn btn-success">
 
